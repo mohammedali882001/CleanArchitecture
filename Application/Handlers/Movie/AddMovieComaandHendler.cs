@@ -30,13 +30,7 @@ namespace Application.Handlers.Movie
         public async Task<GeneralResponse<string>> Handle(AddMovieCommand request, CancellationToken cancellationToken)
         {
             GeneralResponse<string> generalResponse = await UnitOfWork.MovieMapper.AddMovie(
-                new MovieToAddDto()
-                {
-                    CategoryId = request.MovieToAddDto.CategoryId,
-                    Name = request.MovieToAddDto.Name,
-                    Image = request.MovieToAddDto.Image,
-
-                }
+                request.MovieToAddDto
                 );
             if (generalResponse.IsSuccess == true)
             {

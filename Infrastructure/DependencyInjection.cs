@@ -43,6 +43,7 @@ namespace Infrastructure
 
             services.AddScoped<IUserAuthentication, UserAuthentication>();
 
+
             var jwtOptions =configuration.GetSection("jwt").Get<JwtOptions>();
             services.AddSingleton<JwtOptions>(jwtOptions);
 
